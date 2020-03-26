@@ -1,0 +1,37 @@
+﻿<Page
+    x:Class="GCores.NewsIndexPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GCores"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <ListView x:Name="lv_Root" ItemsSource="{Binding}" SelectionMode="None" IsItemClickEnabled="True"  ScrollViewer.HorizontalScrollMode="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollMode="Enabled" ScrollViewer.VerticalScrollBarVisibility="Auto" IsTabStop="False" ItemClick="Lv_Root_ItemClick">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image x:Name="img" Source="{Binding ThumbUrl}" Stretch="UniformToFill"/>
+                        <RelativePanel x:Name="rp_Text" Grid.Column="1">
+                            <TextBlock x:Name="tbl_Title" Text="{Binding Title}" TextWrapping="Wrap" FontSize="24" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True" Margin="5,5,0,5"/>
+                            <TextBlock x:Name="tbl_Desc" Text="{Binding Desc}" TextWrapping="Wrap" FontSize="18" RelativePanel.AlignLeftWithPanel="True" RelativePanel.Below="tbl_Title" Margin="5,0,0,5"/>
+                            <TextBlock x:Name="tbl_Category" Text="{Binding Category}" FontSize="18" RelativePanel.AlignLeftWithPanel="True" RelativePanel.Below="tbl_Desc" Margin="5,0,5,0"/>
+                            <TextBlock x:Name="tbl_Likes" Text="{Binding LikesNum}" FontSize="18" RelativePanel.Below="tbl_Desc" RelativePanel.RightOf="tbl_Category" Margin="0,0,5,0"/>
+                            <TextBlock x:Name="tbl_Comments" Text="{Binding CommentsNum}" FontSize="18" RelativePanel.Below="tbl_Desc" RelativePanel.RightOf="tbl_Likes" Margin="0,0,0,0"/>
+                        </RelativePanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button x:Name="btn_Load" Content="加载更多" HorizontalAlignment="Stretch" Grid.Row="1" Click="Btn_Load_Click"/>
+    </Grid>
+</Page>

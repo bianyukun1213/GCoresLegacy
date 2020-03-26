@@ -1,0 +1,18 @@
+﻿<Page
+    x:Class="GCores.HomePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GCores"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <ListView x:Name="lv_Root" IsFocusEngagementEnabled="True" SelectionMode="None" IsItemClickEnabled="True"  ScrollViewer.HorizontalScrollMode="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollMode="Enabled" ScrollViewer.VerticalScrollBarVisibility="Auto" IsTabStop="False" ItemClick="Lv_Root_ItemClick"/>
+        <Button x:Name="btn_Load" Content="加载更多" HorizontalAlignment="Stretch" Grid.Row="1" Click="Btn_Load_Click"/>
+    </Grid>
+</Page>

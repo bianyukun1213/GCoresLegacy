@@ -1,0 +1,80 @@
+﻿<Page
+    x:Class="GCores.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GCores"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:triggers="using:GCores"
+    mc:Ignorable="d"> 
+
+    <Grid Margin="5" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="col_Left" Width="*"/>
+            <ColumnDefinition x:Name="col_Right" Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <FlipView x:Name="fv_Home">
+            <Image x:Name="img_1" Stretch="UniformToFill" Tapped="Img_1_Tapped"/>
+            <Image x:Name="img_2" Stretch="UniformToFill" Tapped="Img_2_Tapped"/>
+            <Image x:Name="img_3" Stretch="UniformToFill" Tapped="Img_3_Tapped"/>
+        </FlipView>
+        <Pivot Grid.Row="1">
+            <PivotItem Header="首页">
+                <Frame x:Name="home_Frame"/>
+            </PivotItem>
+            <PivotItem Header="电台">
+                <Frame x:Name="radio_Frame"/>
+            </PivotItem>
+            <PivotItem Header="视频">
+                <Frame x:Name="video_Frame"/>
+            </PivotItem>
+            <PivotItem Header="新闻">
+                <Frame x:Name="news_Frame"/>
+            </PivotItem>
+            <PivotItem Header="文章">
+                <Frame x:Name="article_Frame"/>
+            </PivotItem>
+        </Pivot>
+        <Button x:Name="btn_Show" Content="显示浏览器页" Grid.Row="2" HorizontalAlignment="Stretch" Click="Btn_Show_Click" Visibility="Collapsed"/>
+        <Frame x:Name="fm_Content" Grid.Column="1" Grid.RowSpan="3" x:FieldModifier="Public"/>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="vsg_Window" CurrentStateChanged="Vsg_Window_CurrentStateChanged">
+                <VisualState x:Name="BigStateXbox">
+                    <VisualState.StateTriggers>
+                        <triggers:DeviceFamilyTrigger DeviceFamily="Windows.Xbox"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="BigState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1280"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="SmallState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="col_Left.Width" Value="*"/>
+                        <Setter Target="col_Right.Width" Value="0"/>
+                        <Setter Target="fm_Content.(Grid.Column)" Value="0"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="SmallStateMobile">
+                    <VisualState.StateTriggers>
+                        <triggers:DeviceFamilyTrigger DeviceFamily="Windows.Mobile"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="col_Left.Width" Value="*"/>
+                        <Setter Target="col_Right.Width" Value="0"/>
+                        <Setter Target="fm_Content.(Grid.Column)" Value="0"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </Grid>
+</Page>

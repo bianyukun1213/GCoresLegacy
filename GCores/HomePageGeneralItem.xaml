@@ -1,0 +1,25 @@
+﻿<UserControl x:Name="userControl"
+    x:Class="GCores.HomePageGeneralItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GCores"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <RelativePanel x:Name="rp_Root" Tapped="Rp_Root_Tapped">
+        <Image x:Name="img" Stretch="UniformToFill" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWithPanel="True" Source="{Binding Image, ElementName=userControl}"/>
+        <Rectangle x:Name="rec" Fill="Black" Opacity="0.5" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWithPanel="True"/>
+        <TextBlock x:Name="tbl_Category" FontSize="24" Foreground="White" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True" Margin="5,5,0,0" Text="{Binding Category, ElementName=userControl}"/>
+        <TextBlock x:Name="tbl_Time" FontSize="12" Foreground="White" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignBottomWithPanel="True" Margin="5,0,0,5" Text="{Binding Time, ElementName=userControl}"/>
+        <TextBlock x:Name="tbl_Title" TextWrapping="Wrap" FontSize="24" Foreground="White" RelativePanel.AlignLeftWithPanel="True" RelativePanel.Above="tbl_Time" Margin="5,0,0,5" Text="{Binding Title, ElementName=userControl}"/>
+        <TextBlock x:Name="tbl_Comments" FontSize="12" Foreground="White" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignBottomWithPanel="True" Margin="5,0,5,5" Text="{Binding Comments, ElementName=userControl}"/>
+        <TextBlock x:Name="tbl_Likes" FontSize="12" Foreground="White" RelativePanel.AlignBottomWithPanel="True" RelativePanel.LeftOf="tbl_Comments" Margin="0,0,0,5" Text="{Binding Likes, ElementName=userControl}"/>
+        <TextBlock x:Name="tbl_CategoryTitle" TextWrapping="Wrap" FontSize="24" Foreground="White" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" Text="{Binding CategoryTitle, ElementName=userControl}"/>
+        <TextBlock x:Name="tbl_Subscribes" FontSize="24" Foreground="White" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignBottomWithPanel="True" Margin="5,0,5,5" Text="{Binding Subscribes, ElementName=userControl}"/>
+        <TextBlock x:Name="tbl_Articles" FontSize="24" Foreground="White" RelativePanel.AlignBottomWithPanel="True" RelativePanel.LeftOf="tbl_Subscribes" Margin="0,0,0,5" Text="{Binding Articles, ElementName=userControl}"/>
+        <TextBlock x:Name="tbl_UserName" TextWrapping="Wrap" FontSize="24" Foreground="White" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignBottomWithPanel="True" Text="{Binding UserName, ElementName=userControl}"/>
+    </RelativePanel>
+</UserControl>

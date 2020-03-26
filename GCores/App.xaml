@@ -1,0 +1,8 @@
+﻿<Application
+    x:Class="GCores.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GCores"
+    RequestedTheme="Light">
+
+</Application>
